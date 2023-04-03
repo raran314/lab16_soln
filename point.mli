@@ -11,9 +11,9 @@ type point = float * float ;;
    points *)
 val add : point -> point -> point ;;
 
-(* scale factor point -- Returns the point scaled by the factor *)
+(* scale factor point -- Returns the `point` scaled by the `factor` *)
 val scale : float -> point -> point ;;
 
-(* offset point distance angle -- Returns the point reached by going
-   the distance at an angle (in radians) *)
+(* offset point distance angle -- Returns the `point` reached by going
+   the `distance` at an `angle` (in radians) *)
 val offset : point -> float -> float -> point ;;

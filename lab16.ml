@@ -40,8 +40,8 @@ purposes here, buses get 20. mpg, cars get 30. mpg, and trucks get
    
 let get_efficiency (v : vehicle) : float = 
   match v with 
-  | Bus _-> 20.
-  | Car _ -> 30. 
+  | Bus _   -> 20.
+  | Car _   -> 30. 
   | Truck _ -> 15. ;; 
      
 (*....................................................................
@@ -93,10 +93,10 @@ Some important points:
      the change in position, since the `Point` module can handle it
      for you; see the `Point.offset` function.
 
-   o Assume that the vehicle has a full tank, and that each vehicle
-     can only go as far as its energy will carry it, so if the
-     distance is farther than that, the vehicle will go as far as
-     its energy allows and stop with no remaining energy.
+   o Assume that a vehicle can only go as far as its energy will carry
+     it, so if the `distance` is farther than that, the vehicle will
+     go as far as its energy allows and stop with no remaining energy.
+
 ....................................................................*)
 
 let go (veh : vehicle) (distance : float) (angle : float) : vehicle =
@@ -105,14 +105,14 @@ let go (veh : vehicle) (distance : float) (angle : float) : vehicle =
   else
     let energy = get_energy veh in 
     let efficiency = get_efficiency veh in
-    let p = get_pos veh in
+    let position = get_pos veh in
     let distance = min distance (energy *. efficiency) in
-    let new_p = offset p distance angle in
+    let new_position = offset position distance angle in
     let new_energy = energy -. distance /. efficiency in
     match veh with 
-    | Bus _ -> Bus (new_p, new_energy) 
-    | Car _ -> Car (new_p, new_energy)
-    | Truck _ -> Truck (new_p, new_energy) ;;
+    | Bus _   -> Bus (new_position, new_energy) 
+    | Car _   -> Car (new_position, new_energy)
+    | Truck _ -> Truck (new_position, new_energy) ;;
    
 (* At this point, you should be able to model a vehicle's movement
 like this:
@@ -288,6 +288,9 @@ should have the energy efficiency and capacity as in this table:
     Car        30.        100.
     Truck      15.        150.
     Bus        20.        200.
+
+Hint: Because of the power of inheritance, your definition of the car
+class should require only a few lines of code.
 ....................................................................*)
 
 class car (initial_energy : float) (initial_pos : point) = 

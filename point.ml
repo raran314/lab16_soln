@@ -2,7 +2,9 @@
                              CS51 Lab 16
                      Object-Oriented Programming
                         Two-Dimensional Points
-*)
+
+See the file point.mli for documentation of the interface.
+ *)
 
 type point = float * float ;;
 
