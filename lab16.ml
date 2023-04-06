@@ -181,7 +181,7 @@ class vehicle_class (capacity: float)
                     (efficiency : float)
                     (initial_energy : float)
                     (initial_pos : point) =
-object (this)
+  object (this)
     val capacity = capacity
     val efficiency = efficiency
     val mutable energy = initial_energy
