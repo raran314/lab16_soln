@@ -6,7 +6,7 @@
                                SOLUTION
 *)
 
-(* In this lab, you'll use a `Point` module for x-y points, provided
+(* In this lab, you will use a `Point` module for x-y points, provided
 in the files `point.ml` and `point.mli`. You may want to look over
 `point.mli` to get a sense of the interface. (There's no need to look
 at `point.ml`. Why?) *)
